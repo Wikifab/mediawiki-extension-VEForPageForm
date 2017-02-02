@@ -1,0 +1,58 @@
+{
+	"name": "VEForPageForm",
+	"version": "0.1.0",
+	"author": [
+		"Pierre Boutet"
+	],
+	"url": "https://github.com/wikifab",
+	"descriptionmsg": "visualeditorforpageform-desc",
+	"license-name": "MIT",
+	"type": "other",
+	"requires": {
+		"MediaWiki": ">= 1.28.0"
+	},
+	"callback": "VisualEditorHooks::onRegistration",
+	"config": {
+		"VEForPageForm-areaClasses": "vefpf-area"
+	},
+	"MessagesDirs": {
+		"VEForPageForm": [
+			"i18n"
+		]
+	},
+	"Hooks": {
+		"BeforePageDisplay": [
+			"VeForPageForm\\Hooks::onBeforePageDisplay"
+		]
+	},
+	"ResourceModules": {
+		"ext.visualEditorForPageForm.init": {
+			"scripts": [
+				"modules/veforpageform.js",
+				"modules/ext.vefpg.editor.Target.js"
+			],
+			"dependencies": [
+				"ext.visualEditor.core",
+				"ext.visualEditor.mediawiki",
+				"ext.visualEditor.standalone",
+				"ext.visualEditor.core.desktop",
+				"ext.visualEditor.icons",
+				"oojs-ui",
+				"mediawiki.api"
+			],
+			"messages": [
+			]
+		}
+	},
+	"ResourceFileModulePaths": {
+		"localBasePath": "",
+		"remoteExtPath": "VEForPageForm"
+	},
+	"DefaultUserOptions": {
+		"visualeditorforpageform-enable": 1
+	},
+	"AutoloadClasses": {
+		"VeForPageForm\\Hooks": "includes/Hooks.php"
+	},
+	"manifest_version": 1
+}
