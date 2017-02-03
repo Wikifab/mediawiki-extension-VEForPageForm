@@ -51,7 +51,7 @@ mw.ext.vefpg.editor = mw.ext.vefpg.editor || {};
 		$( this.$node ).before( this.$element );
 		
 		$ (this.$node)
-			//.hide()
+			.hide()
 			.removeClass( 'oo-ui-texture-pending' )
 			.prop( 'disabled', false );
 
