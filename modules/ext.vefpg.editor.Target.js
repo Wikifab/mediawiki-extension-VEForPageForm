@@ -62,6 +62,11 @@ mw.ext.vefpg.editor = mw.ext.vefpg.editor || {};
 			//.hide()
 			.removeClass( 'oo-ui-texture-pending' )
 			.prop( 'disabled', false );
+
+		// fix BUG in initialisation of toolbar position :
+		target.getToolbar().onWindowResize();
+		target.onToolbarResize();
+		target.onContainerScroll();
 	}
 	
 	
