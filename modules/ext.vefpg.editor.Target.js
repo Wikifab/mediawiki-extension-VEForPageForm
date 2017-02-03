@@ -37,8 +37,6 @@ mw.ext.vefpg.editor = mw.ext.vefpg.editor || {};
 		
 		this.convertToHtml(content);
 		
-		//this.createWithHtmlContent(content);
-		
 	}
 	
 	mw.ext.vefpg.editor.Target.prototype.createWithHtmlContent = function(content) {
@@ -112,27 +110,6 @@ mw.ext.vefpg.editor = mw.ext.vefpg.editor || {};
 				
 				target.createWithHtmlContent(data[ 'flow-parsoid-utils' ].content);
 				
-				/*alert(data[ 'flow-parsoid-utils' ].content);
-				var surface = target.addSurface(
-						ve.dm.converter.getModelFromDom(
-							ve.createDocumentFromHtml( data[ 'flow-parsoid-utils' ].content )
-						)
-					);
-				alert(surface);
-
-				// Append the target to the document
-				$( target.$node ).before( this.$element );
-				
-				var new_ele = $("<a>click me</a>");
-				new_ele.click(function() {
-					target.updateContent();
-				}); 
-				$( target.$node ).before(new_ele);
-				
-				$ (target.$node)
-					//.hide()
-					.removeClass( 'oo-ui-texture-pending' )
-					.prop( 'disabled', false );*/
 			})
 			.fail( function (data) {
 				alert('Error converting to html');
