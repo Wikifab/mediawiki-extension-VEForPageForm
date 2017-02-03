@@ -13,8 +13,14 @@ mw.ext.vefpg.editor = mw.ext.vefpg.editor || {};
 	 * @param {string} [content='']
 	 */
 	mw.ext.vefpg.editor.Target = function ( $node, content ) {
+		
+		var config = {};
+		config.toolbarConfig = {};
+		//disable floatable behaviour
+		config.toolbarConfig.floatable = false;
+		
 		// Parent constructor
-		mw.ext.vefpg.editor.Target.parent.call( this );
+		mw.ext.vefpg.editor.Target.parent.call( this , config);
 
 		// node the editor is associated with.
 		this.$node = $node;
