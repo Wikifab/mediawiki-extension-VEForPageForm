@@ -1,0 +1,7 @@
+{
+    "name": "wikifab/VEForPageForm",
+    "description": "Mediawiki extension to integrate Visual Editor in Forms created by PageForm extension.",
+    "type": "mediawiki-extension",
+    "require": {
+    }
+}
