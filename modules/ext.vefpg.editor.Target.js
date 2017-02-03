@@ -52,16 +52,15 @@ mw.ext.vefpg.editor = mw.ext.vefpg.editor || {};
 		// Append the target to the document
 		$( this.$node ).before( this.$element );
 		
-		var new_ele = $("<a>click me</a>");
-		new_ele.click(function() {
-			target.updateContent();
-		}); 
-		$( this.$node ).before(new_ele);
-		
 		$ (this.$node)
 			//.hide()
 			.removeClass( 'oo-ui-texture-pending' )
 			.prop( 'disabled', false );
+
+		// when Editor lose focus, we update the field input
+		this.getSurface().getView().on( 'blur', function (data) {
+			target.updateContent();
+		} );
 
 		// fix BUG in initialisation of toolbar position :
 		target.getToolbar().onWindowResize();
