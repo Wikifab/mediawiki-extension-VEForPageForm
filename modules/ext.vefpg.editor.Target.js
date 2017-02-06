@@ -38,6 +38,80 @@ mw.ext.vefpg.editor = mw.ext.vefpg.editor || {};
 
 	OO.inheritClass( mw.ext.vefpg.editor.Target, ve.init.sa.Target );
 	
+	mw.ext.vefpg.editor.Target.static.toolbarGroups = [
+		// History
+		/*{
+			header: OO.ui.deferMsg( 'visualeditor-toolbar-history' ),
+			include: [ 'undo', 'redo' ]
+		},*/
+		// Format
+		/*{
+			header: OO.ui.deferMsg( 'visualeditor-toolbar-paragraph-format' ),
+			type: 'menu',
+			indicator: 'down',
+			title: OO.ui.deferMsg( 'visualeditor-toolbar-format-tooltip' ),
+			include: [ { group: 'format' } ],
+			promote: [ 'paragraph' ],
+			demote: [ 'preformatted', 'blockquote' ]
+		},*/
+		// Text style
+		/*{
+			header: OO.ui.deferMsg( 'visualeditor-toolbar-text-style' ),
+			title: OO.ui.deferMsg( 'visualeditor-toolbar-style-tooltip' ),
+			include: [ 'bold', 'italic', 'moreTextStyle' ]
+		},*/
+		{
+			header: OO.ui.deferMsg( 'visualeditor-toolbar-paragraph-format' ),
+			type: 'menu',
+			indicator: 'down',
+			title: OO.ui.deferMsg( 'visualeditor-toolbar-format-tooltip' ),
+			include: [ 'paragraph', 'preformatted', 'blockquote' ],
+			promote: [ 'paragraph' ],
+			demote: [ 'preformatted', 'blockquote' ]
+		},
+		{
+			icon: 'textStyle',
+			indicator: 'down',
+			title: OO.ui.deferMsg( 'visualeditor-toolbar-style-tooltip' ),
+			include: [ 'bold', 'italic', 'preformatted' ],
+			//allowCollapse: false
+			forceExpand: [ 'bold', 'italic']
+		},
+		// Link
+		{
+			header: OO.ui.deferMsg( 'visualeditor-linkinspector-title' ),
+			include: [ 'link' ]
+		},
+		// Structure
+		{
+			header: OO.ui.deferMsg( 'visualeditor-toolbar-structure' ),
+			type: 'list',
+			icon: 'listBullet',
+			title: OO.ui.deferMsg( 'visualeditor-toolbar-structure' ),
+			indicator: 'down',
+			include: [ { group: 'structure' } ],
+			demote: [ 'outdent', 'indent' ]
+		},
+		// Insert
+		{
+			header: OO.ui.deferMsg( 'visualeditor-toolbar-insert' ),
+			type: 'list',
+			icon: 'add',
+			label: '',
+			title: OO.ui.deferMsg( 'visualeditor-toolbar-insert' ),
+			indicator: 'down',
+			include: [ 'insertTable','comment', 'code', 'specialCharacter', 'preformatted' ]
+		}
+	];
+	mw.ext.vefpg.editor.Target.static.actionGroups = [
+		/*{
+			type: 'list',
+			icon: 'menu',
+			title: OO.ui.deferMsg( 'visualeditor-pagemenu-tooltip' ),
+			include: [ 'findAndReplace', 'commandHelp' ]
+		}*/
+	];
+	
 	mw.ext.vefpg.editor.Target.prototype.init = function ( content ) {
 		var target = this;
 		
