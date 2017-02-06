@@ -1,8 +1,6 @@
 ( function ( $ , mw) {
 	
-	
 	var veInstances = [];
-	
 	
 	function initVisualEditor() {
 		
@@ -14,11 +12,18 @@
 			.done( function () {
 				// init all VisualEditor areas
 				addVisualEditorOnTextareas();
+				
+				// add event on new step button, to appli VE on new steps
+				mw.hook( 'pf.addTemplateInstance' ).add( function(div) {
+						$(div).find('.createboxInput.form-textarea').each(function() {
+							activeVisualEditorOnTextArea(this);
+						});
+					} );
 			} );
 	}
 	
 	function addVisualEditorOnTextareas() {
-		$('.createboxInput.form-textarea').each(function() {
+		$('.createboxInput.form-textarea').not( ".multipleTemplateStarter .form-textarea" ).each(function() {
 			activeVisualEditorOnTextArea(this);
 		});
 	}
@@ -35,6 +40,5 @@
 	}
 	
 	mw.loader.using( 'ext.visualEditorForPageForm.init', $.proxy( initVisualEditor ) );
-	
 	
 }( jQuery , mw) );

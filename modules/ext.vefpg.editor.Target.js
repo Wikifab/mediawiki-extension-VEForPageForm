@@ -152,6 +152,9 @@ mw.ext.vefpg.editor = mw.ext.vefpg.editor || {};
 		this.convertToWikiText(this.getSurface().getHtml());
 	}
 	
+	mw.ext.vefpg.editor.Target.prototype.getPageName = function () {
+		return mw.config.get( 'wgPageName' ).split(/(\\|\/)/g).pop();
+	}
 
 	mw.ext.vefpg.editor.Target.prototype.convertToWikiText = function ( content ) {
 		var target = this;
@@ -164,7 +167,7 @@ mw.ext.vefpg.editor = mw.ext.vefpg.editor || {};
 				from: oldFormat,
 				to: newFormat,
 				content: content,
-				title: mw.config.get( 'wgPageName' )
+				title: this.getPageName()
 			} ).then( function (data) {
 				$( target.$node ).val(data[ 'flow-parsoid-utils' ].content);
 			})
@@ -185,7 +188,7 @@ mw.ext.vefpg.editor = mw.ext.vefpg.editor || {};
 				from: oldFormat,
 				to: newFormat,
 				content: content,
-				title: mw.config.get( 'wgPageName' )
+				title: this.getPageName()
 			} ).then( function (data) {
 				
 				target.createWithHtmlContent(data[ 'flow-parsoid-utils' ].content);
