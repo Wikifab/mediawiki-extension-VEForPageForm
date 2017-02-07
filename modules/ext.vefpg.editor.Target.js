@@ -5,6 +5,7 @@ mw.ext.vefpg.editor = mw.ext.vefpg.editor || {};
 ( function ( $, mw, OO, ve ) {
 	'use strict';
 
+	
 	/**
 	 * @class
 	 * @extends ve.init.sa.Target
@@ -113,10 +114,7 @@ mw.ext.vefpg.editor = mw.ext.vefpg.editor || {};
 	];
 	
 	mw.ext.vefpg.editor.Target.prototype.init = function ( content ) {
-		var target = this;
-		
 		this.convertToHtml(content);
-		
 	}
 	
 	mw.ext.vefpg.editor.Target.prototype.createWithHtmlContent = function(content) {
@@ -135,7 +133,7 @@ mw.ext.vefpg.editor = mw.ext.vefpg.editor || {};
 			.removeClass( 'oo-ui-texture-pending' )
 			.prop( 'disabled', false );
 
-		// when Editor lose focus, we update the field input
+		// when Editor loose focus, we update the field input
 		this.getSurface().getView().on( 'blur', function (data) {
 			target.updateContent();
 		} );
@@ -148,7 +146,7 @@ mw.ext.vefpg.editor = mw.ext.vefpg.editor || {};
 	
 	
 	mw.ext.vefpg.editor.Target.prototype.updateContent = function () {
-		
+
 		this.convertToWikiText(this.getSurface().getHtml());
 	}
 	
@@ -160,8 +158,7 @@ mw.ext.vefpg.editor = mw.ext.vefpg.editor || {};
 		var target = this;
 		var oldFormat = 'html';
 		var newFormat = 'wikitext';
-		
-		
+
 		var apiCall = new mw.Api().post( {
 				action: 'flow-parsoid-utils',
 				from: oldFormat,
@@ -192,7 +189,6 @@ mw.ext.vefpg.editor = mw.ext.vefpg.editor || {};
 			} ).then( function (data) {
 				
 				target.createWithHtmlContent(data[ 'flow-parsoid-utils' ].content);
-				
 			})
 			.fail( function (data) {
 				alert('Error converting to html');
