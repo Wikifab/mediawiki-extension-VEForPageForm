@@ -3,9 +3,10 @@ namespace VeForPageForm;
 
 class Hooks {
 
-	public static function onBeforePageDisplay( \OutputPage &$output, \Skin &$skin ) {
+	public static function start() {
+		global $wgOut;
 
-		$output->addModules( [
+		$wgOut->addModules( [
 				'ext.visualEditorForPageForm.init'
 		] );
 	}

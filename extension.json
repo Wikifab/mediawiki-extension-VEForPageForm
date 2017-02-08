@@ -21,8 +21,8 @@
 		]
 	},
 	"Hooks": {
-		"BeforePageDisplay": [
-			"VeForPageForm\\Hooks::onBeforePageDisplay"
+		"FormEdit::showEditForm:initial": [
+			"VeForPageForm\\Hooks::start"
 		]
 	},
 	"ResourceModules": {
