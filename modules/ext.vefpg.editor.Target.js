@@ -16,6 +16,7 @@ mw.ext.vefpg.editor = mw.ext.vefpg.editor || {};
 	mw.ext.vefpg.editor.Target = function ( $node, content ) {
 		
 		var config = {};
+		var target = this;
 		config.toolbarConfig = {};
 		//disable floatable behaviour
 		config.toolbarConfig.floatable = false;
