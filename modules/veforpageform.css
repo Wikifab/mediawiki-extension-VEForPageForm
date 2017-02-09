@@ -1,3 +1,16 @@
-.ve-init-target {
-  border: 1px solid #bbbbbb;
+.ve-area-wrapper .ve-init-target {
+  border: 0px solid #bbbbbb;
+}
+
+
+.ve-area-wrapper {
+	display:block;
+	border: 1px solid #bbbbbb;
+}
+#pfForm  .ve-area-wrapper textarea {
+	border: 0px solid #bbbbbb;
+}
+
+.ve-area-wrapper .oo-ui-toolbar-bar {
+	border-bottom: 0px solid  #bbbbbb;
 }

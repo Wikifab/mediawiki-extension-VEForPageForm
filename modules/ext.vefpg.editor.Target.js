@@ -26,6 +26,10 @@ mw.ext.vefpg.editor = mw.ext.vefpg.editor || {};
 		// node the editor is associated with.
 		this.$node = $node;
 
+		// add class for css :
+		$($node).closest('.inputSpan').addClass('ve-area-wrapper');
+		
+
 		// HACK: make textarea look pending in case we didn't come from an editor switch
 		// Once this is an OO.ui.TextInputWidget we'll be able to use real PendingElement
 		// functionality for this
@@ -235,6 +239,16 @@ mw.ext.vefpg.editor = mw.ext.vefpg.editor || {};
 			this.updateContent();
 		}
 	}
+	
+	/**
+	 * Attach the toolbar to the DOM
+	 * redifine attach Toolbar function to place on the bottom
+	 */
+	mw.ext.vefpg.editor.Target.prototype.attachToolbar = function ( surface ) {
+		$(this.$node).after( this.getToolbar().$element );
+		this.getToolbar().initialize();
+		this.getActions().initialize();
+	};
 	
 	
 

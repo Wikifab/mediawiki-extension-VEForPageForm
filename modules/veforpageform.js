@@ -80,7 +80,7 @@
 		var toolbar = $('<div class="ve-demo-toolbar ve-demo-targetToolbar"></div>');
 		var editor = $('<div class="ve-demo-editor"></div>');
 		
-		$(textarea).before(logo, toolbar, editor);
+		$(textarea).before(logo, editor, toolbar);
 		var target = new mw.ext.vefpg.editor.Target(textarea, $(textarea).val());
 		veInstances.push( target);
 	}
