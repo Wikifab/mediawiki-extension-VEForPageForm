@@ -29,7 +29,10 @@
 		"ext.visualEditorForPageForm.init": {
 			"scripts": [
 				"modules/veforpageform.js",
-				"modules/ext.vefpg.editor.Target.js"
+				"modules/ext.vefpg.editor.Target.js",
+				"modules/ui/ext.vefpg.ui.CommandRegistry.js",
+				"modules/ui/ext.vefpg.ui.SwitchEditorAction.js",
+				"modules/ui/ext.vefpg.ui.SwitchEditorTool.js"
 			],
 			"styles": "modules/veforpageform.css",
 			"dependencies": [

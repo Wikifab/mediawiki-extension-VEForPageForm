@@ -81,7 +81,6 @@
 		var editor = $('<div class="ve-demo-editor"></div>');
 		
 		$(textarea).before(logo, toolbar, editor);
-		$(textarea).css('border', '1px solid #F00');
 		var target = new mw.ext.vefpg.editor.Target(textarea, $(textarea).val());
 		veInstances.push( target);
 	}

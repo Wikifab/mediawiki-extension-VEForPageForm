@@ -101,10 +101,11 @@ mw.ext.vefpg.editor = mw.ext.vefpg.editor || {};
 			label: '',
 			title: OO.ui.deferMsg( 'visualeditor-toolbar-insert' ),
 			indicator: 'down',
-			include: [ 'insertTable','comment', 'code', 'specialCharacter', 'preformatted' ]
+			include: [ 'insertTable', 'specialCharacter', 'preformatted' ]
 		}
 	];
 	mw.ext.vefpg.editor.Target.static.actionGroups = [
+			{ include: [ 'vefpgSwitchEditor' ] }
 		/*{
 			type: 'list',
 			icon: 'menu',
@@ -117,6 +118,11 @@ mw.ext.vefpg.editor = mw.ext.vefpg.editor || {};
 		this.convertToHtml(content);
 	}
 	
+	/**
+	 * create a new surface with VisualEditor, and add it to the target
+	 * 
+	 * @param String content text to initiate content, in html format
+	 */
 	mw.ext.vefpg.editor.Target.prototype.createWithHtmlContent = function(content) {
 		var target = this;
 		var surface = this.addSurface(
@@ -137,14 +143,22 @@ mw.ext.vefpg.editor = mw.ext.vefpg.editor || {};
 		this.getSurface().getView().on( 'blur', function (data) {
 			target.updateContent();
 		} );
+		this.getSurface().on( 'switchEditor', function (data) {
+			console.log('switchEditor event');
+			target.switchEditor();
+		} );
 
-		// fix BUG in initialisation of toolbar position :
+		// fix BUG on initialisation of toolbar position :
 		target.getToolbar().onWindowResize();
 		target.onToolbarResize();
 		target.onContainerScroll();
 	}
 	
 	
+	/**
+	 * update the original textarea value with the content of VisualEditor surface 
+	 * (converte the content into wikitext)
+	 */
 	mw.ext.vefpg.editor.Target.prototype.updateContent = function () {
 
 		this.convertToWikiText(this.getSurface().getHtml());
@@ -159,6 +173,10 @@ mw.ext.vefpg.editor = mw.ext.vefpg.editor || {};
 		var oldFormat = 'html';
 		var newFormat = 'wikitext';
 
+		$(this.$node)
+			.prop( 'disabled', true )
+			.addClass( 'oo-ui-texture-pending' );
+		
 		var apiCall = new mw.Api().post( {
 				action: 'flow-parsoid-utils',
 				from: oldFormat,
@@ -167,9 +185,13 @@ mw.ext.vefpg.editor = mw.ext.vefpg.editor || {};
 				title: this.getPageName()
 			} ).then( function (data) {
 				$( target.$node ).val(data[ 'flow-parsoid-utils' ].content);
+				
+				$ (target.$node)
+					.removeClass( 'oo-ui-texture-pending' )
+					.prop( 'disabled', false );
 			})
 			.fail( function (data) {
-				alert('Error converting to wikitext');
+				console.log('Error converting to wikitext');
 			});
 		
 	}
@@ -187,13 +209,31 @@ mw.ext.vefpg.editor = mw.ext.vefpg.editor || {};
 				content: content,
 				title: this.getPageName()
 			} ).then( function (data) {
-				
 				target.createWithHtmlContent(data[ 'flow-parsoid-utils' ].content);
 			})
 			.fail( function (data) {
-				alert('Error converting to html');
+				console.log('Error converting to html');
 			});
 		
+	}
+	
+	mw.ext.vefpg.editor.Target.prototype.switchEditor = function ( content ) {
+
+		var textarea = this.$node;
+		
+		if ( $(textarea).is(":visible") ) {
+			// switch back to VE
+			this.clearSurfaces();
+			$(textarea).hide();
+			//$(this.getSurface().$element).show();
+			//this.getSurface().getView().focus();
+			this.convertToHtml($(textarea).val());
+		} else {
+			// switch to text editor
+			$(this.getSurface().$element).hide();
+			$(textarea).show();
+			this.updateContent();
+		}
 	}
 	
 	
