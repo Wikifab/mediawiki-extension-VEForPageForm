@@ -45,6 +45,7 @@
 				"mediawiki.api"
 			],
 			"messages": [
+				"flow-ve-switch-editor-tool-title"
 			]
 		}
 	},
