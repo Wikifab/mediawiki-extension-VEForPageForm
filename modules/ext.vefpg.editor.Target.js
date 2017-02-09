@@ -36,6 +36,14 @@ mw.ext.vefpg.editor = mw.ext.vefpg.editor || {};
 		$($node)
 			.prop( 'disabled', true )
 			.addClass( 'oo-ui-texture-pending' );
+		
+		// show or hide toolbar when loose focus
+		$($node).on( 'blur', function (data) {
+			target.updateToolbarVisibility();
+		} );
+		$($node).on( 'focus', function (data) {
+			target.updateToolbarVisibility();
+		} );
 
 		// load dependencies & init editor
 		mw.loader.using( 'ext.visualEditorForPageForm.init', $.proxy( this.init, this, content || '' ) );
@@ -151,6 +159,16 @@ mw.ext.vefpg.editor = mw.ext.vefpg.editor || {};
 			console.log('switchEditor event');
 			target.switchEditor();
 		} );
+		
+		// show or hide toolbar when loose focus
+		this.getSurface().getView().on( 'blur', function (data) {
+			target.updateToolbarVisibility();
+		} );
+		this.getSurface().getView().on( 'focus', function (data) {
+			target.updateToolbarVisibility();
+		} );
+		target.updateToolbarVisibility();
+		
 
 		// fix BUG on initialisation of toolbar position :
 		target.getToolbar().onWindowResize();
@@ -158,6 +176,17 @@ mw.ext.vefpg.editor = mw.ext.vefpg.editor || {};
 		target.onContainerScroll();
 	}
 	
+	/**
+	 * hide toolbar if area not focused (VE area or textarea )
+	 * 
+	 */
+	mw.ext.vefpg.editor.Target.prototype.updateToolbarVisibility = function () {
+		if ( $(this.$node).closest('.inputSpan').find(":focus").length > 0){
+			this.getToolbar().$element.show(500);
+		} else {
+			this.getToolbar().$element.hide(500);
+		}
+	}
 	
 	/**
 	 * update the original textarea value with the content of VisualEditor surface 
