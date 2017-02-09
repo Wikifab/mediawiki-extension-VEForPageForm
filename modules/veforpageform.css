@@ -1,16 +1,27 @@
 .ve-area-wrapper .ve-init-target {
-  border: 0px solid #bbbbbb;
+  border: 0px;
 }
-
 
 .ve-area-wrapper {
 	display:block;
-	border: 1px solid #bbbbbb;
+	border: 1px solid #ccc;
 }
-#pfForm  .ve-area-wrapper textarea {
-	border: 0px solid #bbbbbb;
+
+#pfForm .ve-area-wrapper textarea {
+	border: 0px;
 }
 
 .ve-area-wrapper .oo-ui-toolbar-bar {
-	border-bottom: 0px solid  #bbbbbb;
+	border-bottom: 0px;
+    border-top: 1px solid #ccc;
+    background: #f8f8f8;
+}
+
+.ve-area-wrapper .ve-ce-documentNode {
+    padding: 0.9em 1.2em;
+	min-height: 130px;
+}
+
+.ve-area-wrapper .oo-ui-toolbar-bar .oo-ui-toolbar-actions .oo-ui-toolbar-bar {
+	border-top:0px;
 }
