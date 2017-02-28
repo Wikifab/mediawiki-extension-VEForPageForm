@@ -219,6 +219,7 @@ mw.ext.vefpg.editor = mw.ext.vefpg.editor || {};
 				title: this.getPageName()
 			} ).then( function (data) {
 				$( target.$node ).val(data[ 'flow-parsoid-utils' ].content);
+				$( target.$node ).change();
 				
 				$ (target.$node)
 					.removeClass( 'oo-ui-texture-pending' )
