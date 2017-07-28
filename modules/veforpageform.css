@@ -40,3 +40,29 @@
 .ve-area-wrapper .oo-ui-toolbar-bar .oo-ui-tool-name-vefpgSwitchEditor .oo-ui-tool-link{
 	padding:9px;
 } 
+
+.ve-area-wrapper .ve-ui-linearContextItem-label, .ve-area-wrapper .ve-ui-linearContextItem-actions,
+.ve-area-wrapper .ve-ui-commentContextItem .ve-ui-linearContextItem-body {
+	display:none;
+}
+
+.ve-area-wrapper .oo-ui-popupWidget-anchored .oo-ui-popupWidget-popup {
+	min-height: 68px;
+}
+
+.ve-area-wrapper .ve-ui-linearContextItem-description {
+	line-height: 1.7em;
+    overflow: inherit;
+    text-overflow: inherit;
+    white-space: inherit;
+    color: #888;
+    margin-top: 11px;
+}
+
+.ve-area-wrapper .ve-ui-linearContextItem-title {
+	padding: 0.7em 0.3em 0.7em 0.5em;
+}
+
+.ve-area-wrapper .ve-ui-linearContextItem-description::before {
+	content: "Ceci est un commentaire nécéssaire à la traduction. Veuillez ne pas le supprimer.";
+}
