@@ -6,6 +6,9 @@ VE for page for is a mediawiki extension to integrate VisualEditor into PageForm
 
 See documentation of Page Forms and Visual Editor to install them, with Parsoid.
 
+For PageForms, it requires an altered version available here : https://github.com/Wikifab/PageForms
+We plan to integrate all of this in the original PageForms extension, but this is not done yet.
+
 Extract an put VEForPageForm  in the 'extensions' directory.
 
 Include it in LocalSettings.php :
