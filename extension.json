@@ -28,6 +28,50 @@
 	"ResourceModules": {
 		"ext.visualEditorForPageForm.init": {
 			"scripts": [
+				"modules/veforpageform-init.js"
+			],
+			"dependencies": [
+			]
+		},
+		"ext.visualEditorForPageForm.visualEditor": {
+			"scripts": [
+				"modules/lib/ve/ve.init.sa.Target.js",
+				"modules/ui/ext.vefpg.ui.CommandRegistry.js",
+				"modules/ui/ext.vefpg.ui.SwitchEditorAction.js",
+				"modules/ui/ext.vefpg.ui.SwitchEditorTool.js",
+				"modules/129/ext.pageforms.ve.target.js",
+				"modules/129/ext.pageforms.ve.editor.js"
+			],
+			"scripts@": [
+				"editor/editors/visualeditor/mw.flow.ve.Target.js",
+				"editor/editors/visualeditor/mw.flow.ve.UserCache.js",
+				"editor/editors/visualeditor/ui/inspectors/mw.flow.ve.ui.MentionInspector.js",
+				"editor/editors/visualeditor/ui/tools/mw.flow.ve.ui.MentionInspectorTool.js",
+				"editor/editors/visualeditor/ui/contextitem/mw.flow.ve.ui.MentionContextItem.js",
+				"editor/editors/visualeditor/ui/widgets/mw.flow.ve.ui.MentionTargetInputWidget.js",
+				"editor/editors/visualeditor/ui/tools/mw.flow.ve.ui.SwitchEditorTool.js",
+				"editor/editors/visualeditor/ui/actions/mw.flow.ve.ui.SwitchEditorAction.js",
+				"editor/editors/visualeditor/mw.flow.ve.CommandRegistry.js",
+				"editor/editors/visualeditor/mw.flow.ve.SequenceRegistry.js"
+			],
+			"styles": [
+				"modules/veforpageform.css"
+			],
+			"dependencies": [
+				"ext.visualEditor.core",
+				"ext.visualEditor.core.desktop",
+				"ext.visualEditor.data",
+				"ext.visualEditor.icons",
+				"ext.visualEditor.mediawiki",
+				"ext.visualEditor.desktopTarget",
+				"ext.visualEditor.mwimage",
+				"ext.visualEditor.mwlink",
+				"ext.visualEditor.mwtransclusion",
+				"oojs-ui.styles.icons-editing-advanced"
+			]
+		},
+		"ext.visualEditorForPageForm.init128": {
+			"scripts": [
 				"modules/veforpageform.js",
 				"modules/ext.vefpg.editor.Target.js",
 				"modules/ui/ext.vefpg.ui.CommandRegistry.js",
