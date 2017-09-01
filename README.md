@@ -18,18 +18,19 @@ Extract an put VEForPageForm  in the 'extensions' directory.
 
 Include it in LocalSettings.php :
 ```php
- wfLoadExtension( 'VisualEditor' );
+ wfLoadExtension( 'VEForPageForm' );
  ```
 
 It has be tested on mediawiki 1.28 (and VisualEditor REL1_28)
 
 # Configuration
 
-To proper work, you need to load PageForm and VisualEditor extensions in your Localsetting.php. And you need to define your connection with parsoid. See VisualEditor documentation for more details. but you may not want VisualEditor to be activated on usual edit pages. To do so you can configure it in Localsettings.php following this example :
+To proper work, you need to load PageForm, VisualEditor and Flow extensions in your Localsetting.php. And you need to define your connection with parsoid. See VisualEditor documentation for more details. but you may not want VisualEditor to be activated on usual edit pages. To do so you can configure it in Localsettings.php following this example :
 
 ```php
  wfLoadExtension( 'PageForm' );
  wfLoadExtension( 'VisualEditor' );
+ wfLoadExtension( 'Flow' );
  wfLoadExtension( 'VEForPageForm' );
  
  // Disable VE by default for everybody
