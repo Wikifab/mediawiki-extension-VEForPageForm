@@ -29,6 +29,9 @@
 		// node the editor is associated with.
 		this.$node = $($node);
 
+		// add class for css :
+		$(this.$node).closest('.inputSpan').addClass('ve-area-wrapper');
+		
 		// HACK: make textarea look pending in case we didn't come from an editor switch
 		// Once this is an OO.ui.TextInputWidget we'll be able to use real PendingElement
 		// functionality for this
@@ -67,8 +70,8 @@
 		// to create an empty document, but does not mention other falsy values.
 		content = content || '';
 		
-		console.log('init content');
 
+		
 		//this.target = ve.init.mw.targetFactory.create( 'pageForms' );
 		this.target = new mw.pageForms.ve.Target(this.$node, $(this.$node).val());
 

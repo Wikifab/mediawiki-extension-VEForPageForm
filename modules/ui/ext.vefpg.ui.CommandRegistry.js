@@ -1,4 +1,5 @@
 
+mw.ext = mw.ext || {};
 mw.ext.vefpg = mw.ext.vefpg || {};
 mw.ext.vefpg.ui = mw.ext.vefpg.ui || {};
 
