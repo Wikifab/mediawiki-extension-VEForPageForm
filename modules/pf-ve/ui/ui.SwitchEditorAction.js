@@ -10,14 +10,14 @@
  * @constructor
  * @param {ve.ui.Surface} surface Surface to act on
  */
-mw.ext.vefpg.ui.SwitchEditorAction = function MwVefpgUiSwitchEditorAction( surface ) {
+mw.pageForms.ve.ui.SwitchEditorAction = function MwVefpgUiSwitchEditorAction( surface ) {
 	// Parent constructor
 	ve.ui.Action.call( this, surface );
 };
 
 /* Inheritance */
 
-OO.inheritClass( mw.ext.vefpg.ui.SwitchEditorAction, ve.ui.Action );
+OO.inheritClass( mw.pageForms.ve.ui.SwitchEditorAction, ve.ui.Action );
 
 /* Static Properties */
 
@@ -27,7 +27,7 @@ OO.inheritClass( mw.ext.vefpg.ui.SwitchEditorAction, ve.ui.Action );
  * @static
  * @property
  */
-mw.ext.vefpg.ui.SwitchEditorAction.static.name = 'vefpgSwitchEditor';
+mw.pageForms.ve.ui.SwitchEditorAction.static.name = 'vefpgSwitchEditor';
 
 /**
  * List of allowed methods for the action.
@@ -35,7 +35,7 @@ mw.ext.vefpg.ui.SwitchEditorAction.static.name = 'vefpgSwitchEditor';
  * @static
  * @property
  */
-mw.ext.vefpg.ui.SwitchEditorAction.static.methods = [ 'switch' ];
+mw.pageForms.ve.ui.SwitchEditorAction.static.methods = [ 'switch' ];
 
 /* Methods */
 
@@ -44,11 +44,11 @@ mw.ext.vefpg.ui.SwitchEditorAction.static.methods = [ 'switch' ];
  *
  * @method
  */
-mw.ext.vefpg.ui.SwitchEditorAction.prototype.switch = function () {
+mw.pageForms.ve.ui.SwitchEditorAction.prototype.switch = function () {
 	this.surface.emit('switchEditor');
 	
 };
 
-ve.ui.actionFactory.register( mw.ext.vefpg.ui.SwitchEditorAction );
+ve.ui.actionFactory.register( mw.pageForms.ve.ui.SwitchEditorAction );
 
 }( mediaWiki, OO, ve ) );

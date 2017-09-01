@@ -1,5 +1,13 @@
 ( function ( $ , mw) {
 	
+	/**
+	 * what does this file do :
+	 * - Load VisualEditor librairy
+	 * - look for every textearea where we must activate visual editor, and activate it
+	 * - watch click on save button, to defer the save request after all visualEditor requests are done.
+	 * 
+	 */
+	
 	var veInstances = [];
 	
 	function initVisualEditor() {
@@ -9,6 +17,11 @@
 				$( editor ).text( 'Sorry, this browser is not supported.' );
 			} )
 			.done( function () {
+
+
+				// add i18n messages to VE
+				ve.init.platform.addMessages( mw.messages.get() );
+				
 				// init all VisualEditor areas
 				addVisualEditorOnTextareas();
 				
@@ -41,8 +54,8 @@
 			var updateNeeded = true;
 			// if one VE area is focused, we force to update his data by bluring it
 		    for (var int = 0; int < veInstances.length; int++) {
-		    	if (veInstances[int].getSurface().getView().isFocused()) {
-		    		veInstances[int].getSurface().getView().blur();
+		    	if (veInstances[int].target.getSurface().getView().isFocused()) {
+		    		veInstances[int].target.getSurface().getView().blur();
 		    		updateNeeded = true;
 		    	}
 			}
@@ -81,10 +94,12 @@
 		var editor = $('<div class="ve-demo-editor"></div>');
 		
 		$(textarea).before(logo, editor, toolbar);
-		var target = new mw.ext.vefpg.editor.Target(textarea, $(textarea).val());
-		veInstances.push( target);
+		var veEditor = new mw.pageForms.ve.Editor(textarea, $(textarea).val());
+		veInstances.push( veEditor);
 	}
 	
-	mw.loader.using( 'ext.visualEditorForPageForm.init', $.proxy( initVisualEditor ) );
+	mw.loader.using( 'ext.visualEditorForPageForm.visualEditor', $.proxy( initVisualEditor ) );
 	
 }( jQuery , mw) );
+
+$ = jQuery;

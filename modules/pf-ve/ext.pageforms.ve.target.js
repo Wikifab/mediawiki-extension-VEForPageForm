@@ -1,7 +1,7 @@
 ( function ( mw, OO, ve ) {
 	'use strict';
 	mw.pageForms = mw.pageForms || {};
-	mw.pageForms.ve = {
+	mw.pageForms.ve = mw.pageForms.ve || {
 		ui: {}
 	};
 
