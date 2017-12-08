@@ -29,6 +29,10 @@
 	min-height: 130px;
 }
 
+.ve-area-wrapper .oo-ui-toolbar-narrow .oo-ui-toolbar-bar:after {
+    border-bottom: 0px;
+}
+
 .ve-area-wrapper .oo-ui-toolbar-bar .oo-ui-toolbar-actions .oo-ui-toolbar-bar {
 	border-top:0px;
 }
@@ -38,7 +42,7 @@
 }
 
 .ve-area-wrapper .oo-ui-toolbar-bar .oo-ui-tool-name-vefpgSwitchEditor .oo-ui-tool-link{
-	padding:9px;
+	padding:9.5px;
 } 
 
 .ve-area-wrapper .ve-ui-linearContextItem-label, .ve-area-wrapper .ve-ui-linearContextItem-actions,
